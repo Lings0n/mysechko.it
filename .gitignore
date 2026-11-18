@@ -1,1 +1,3 @@
-*.png
+armanini/logo-armanini.svg
+armanini/LOGO ARMANINI/*
+!armanini/LOGO ARMANINI/logo-armanini-bianco.png

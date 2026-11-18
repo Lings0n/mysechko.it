@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volodymyr Mysechko · Troticoltura Armanini</title>
+<meta name="description" content="Biglietto da visita di Volodymyr Mysechko, commerciale B2B di Troticoltura Armanini: contatti commerciali e ufficio ordini.">
+<style>
+  /* Colori presi da armanini.it (verde acqua, verde scuro) + blu; niente oro e niente arancione. Carattere Poppins */
+  :root{
+    --navy:#005f5c; --navy2:#00837f; --teal:#08b0a0; --teal-soft:#d6f3ef;
+    --blue:#0a5c8a;
+    --bg:#f1fbfa; --card:#ffffff; --text:#333333; --muted:#5f6f6d; --line:#dcefeb;
+    --radius:16px; --max:640px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Poppins,"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:16px}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+
+  /* Testata */
+  header{background:linear-gradient(120deg,var(--navy) 0%,var(--teal) 100%);color:#fff;padding:20px 0 76px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+  .logo-box{width:44px;height:44px;border-radius:12px;background:#fff;border:2px solid var(--teal);display:grid;place-items:center;font-size:10px;text-align:center;line-height:1.1;color:var(--navy2);font-weight:700}
+  .logo img{height:64px;width:auto;display:block}
+  .lang{display:flex;border:1px solid rgba(255,255,255,.45);border-radius:999px;overflow:hidden}
+  .lang button{background:none;border:0;color:#fff;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer;opacity:.8}
+  .lang button.on{background:#fff;color:var(--navy);opacity:1;font-weight:600}
+  .person{display:flex;gap:16px;align-items:center}
+  .avatar{flex:0 0 76px;height:76px;border-radius:50%;background:#fff;color:var(--navy2);border:3px solid var(--teal-soft);display:grid;place-items:center;font-size:28px;font-weight:700}
+  h1{font-size:26px;line-height:1.15;font-weight:700}
+  .role{color:#fff;font-size:15px;margin-top:4px;font-weight:600;opacity:.95}
+  .place{color:var(--teal-soft);font-size:14px}
+
+  /* Pulsanti contatto */
+  .actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-52px}
+  .act{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--card);border:0;border-radius:var(--radius);padding:14px 4px;box-shadow:0 10px 30px rgba(10,25,47,.10);text-decoration:none;font:inherit;font-size:13px;font-weight:600;color:var(--navy2);cursor:pointer}
+  .act svg{width:26px;height:26px}
+  .act:hover{filter:brightness(.97)}
+
+  /* Sezioni */
+  section{margin-top:28px}
+  h2{font-size:20px;font-weight:600;margin-bottom:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .card + .card{margin-top:12px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .row small{display:block;color:var(--muted);font-size:13px}
+  .row a{font-weight:600;color:var(--navy2);text-decoration:none;text-align:right;word-break:break-word}
+
+  /* Come funziona + ruoli */
+  .steps{list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;padding:8px 0}
+  .steps li::before{content:counter(s);flex:0 0 28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+  .steps b{display:block}
+  .steps span{color:var(--muted);font-size:14px}
+  .who{font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--navy2);margin-bottom:2px}
+  .card.me .who{color:var(--blue)}
+  .intro{color:var(--muted);font-size:14px;margin-bottom:6px}
+  .weblink{display:flex;align-items:center;gap:14px;margin-top:10px;padding:12px 16px;border-radius:14px;text-decoration:none;color:#fff;background:linear-gradient(120deg,var(--blue) 0%,var(--navy2) 55%,var(--teal) 100%);box-shadow:0 8px 20px rgba(0,95,92,.18)}
+  .weblink:hover{filter:brightness(1.06)}
+  .weblink img{height:46px;width:auto;flex:0 0 auto}
+  .weblink span{flex:1;line-height:1.3}
+  .weblink b{display:block;font-size:15px}
+  .weblink small{opacity:.85;font-size:13px}
+  .weblink .arrow{flex:0 0 auto;font-size:22px}
+  .card.office{border-left:4px solid var(--navy2)}
+  .card.me{border-left:4px solid var(--blue)}
+  h2{color:var(--navy)}
+
+  .home{display:block;margin-top:28px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-decoration:none;font-weight:600;color:var(--navy2)}
+  .home small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+  footer{margin:36px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+  footer p + p{margin-top:4px}
+
+  @media (max-width:380px){
+    .act{font-size:12px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="logo">
+        <img src="LOGO%20ARMANINI/logo-armanini-bianco.png" alt="Troticoltura Armanini">
+        Troticoltura Armanini
+      </div>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" data-lang="it" class="on">IT</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+    <div class="person">
+      <div class="avatar">VM</div>
+      <div>
+        <h1>Volodymyr Mysechko</h1>
+        <div class="role" data-en="B2B Sales Representative">Commerciale B2B</div>
+        <div class="place" data-en="Trout and char from Trentino">Trota e salmerino del Trentino</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="actions">
+    <a class="act" id="a-call" href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>
+      <span data-en="Call">Chiama</span>
+    </a>
+    <a class="act" id="a-wa" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a4 4 0 01-2-2l1-1-1-2z"/></svg>
+      WhatsApp
+    </a>
+    <a class="act" id="a-mail" href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      Email
+    </a>
+    <button class="act" id="a-vcf" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="8" r="4"/><path d="M3 20a7 7 0 0114 0"/><path d="M19 8v6M16 11h6"/></svg>
+      <span data-en="Save">Salva</span>
+    </button>
+  </div>
+
+  <section>
+    <h2 data-en="How it works">Come funziona</h2>
+    <div class="card">
+      <ol class="steps">
+        <li><div><b data-en="Contact me">Contattate me</b><span data-en="I present the products and send you the price list.">Vi presento i prodotti e vi mando il listino.</span></div></li>
+        <li><div><b data-en="We agree on the terms">Concordiamo le condizioni</b><span data-en="Prices, formats, delivery days and payment terms.">Prezzi, formati, giorni di consegna e pagamenti.</span></div></li>
+        <li><div><b data-en="Send your orders to the office">Inviate gli ordini all'ufficio</b><span data-en="Once everything is agreed, orders go directly to the Armanini orders office.">Quando è tutto concordato, gli ordini vanno direttamente all'ufficio ordini Armanini.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="Sales contact">Commerciale</h2>
+    <div class="card me">
+      <div class="who" data-en="Contact me for">Contattatemi per</div>
+      <p class="intro" data-en="Price list and prices · commercial terms · new partnerships · new products.">Listino e prezzi · condizioni commerciali · nuove collaborazioni · nuovi prodotti.</p>
+      <div class="row"><div><small data-en="Phone / WhatsApp">Telefono / WhatsApp</small></div><a id="t-phone" href="tel:+393248719456">+39 324 871 9456</a></div>
+      <div class="row"><div><small>Email</small></div><a id="t-mail" href="#"></a></div>
+      <div class="row"><div><small>LinkedIn</small></div><a href="https://www.linkedin.com/in/volodymyr-mysechko/" target="_blank" rel="noopener">volodymyr-mysechko</a></div>    </div>
+  </section>
+
+  <section>
+    <h2 data-en="Orders">Ordini</h2>
+    <div class="card office">
+      <div class="who" data-en="Armanini orders office">Ufficio ordini Armanini</div>
+      <p class="intro" data-en="For customers with agreed terms: send your orders here, by phone, WhatsApp or email.">Per i clienti con condizioni già concordate: inviate qui i vostri ordini, per telefono, WhatsApp o email.</p>
+      <div class="row"><div><small data-en="Phone">Telefono</small></div><a id="t-ophone" href="tel:+390464505224">0464 505224</a></div>
+      <div class="row"><div><small>WhatsApp</small></div><a id="t-owa" href="https://wa.me/393423966779" target="_blank" rel="noopener">342 396 6779</a></div>
+      <div class="row"><div><small>Email</small></div><a id="t-omail" href="mailto:vendite.linfano@armanini.it">vendite.linfano@armanini.it</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Troticoltura Armanini</h2>
+    <div class="card">
+      <p class="intro" data-en="Products, locations and shops are on the official website.">Prodotti, sedi e punti vendita sono sul sito ufficiale.</p>
+      <a class="weblink" id="t-web" href="#" target="_blank" rel="noopener">
+        <img src="LOGO%20ARMANINI/logo-armanini-bianco.png" alt="">
+        <span><b data-en="Visit the official website">Visita il sito ufficiale</b><small>armanini.it</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <a class="home" href="../"><span data-en="About me and other partners →">Chi sono e altre collaborazioni →</span><small>Volodymyr Mysechko · <span data-en="B2B sales consultant">Consulente commerciale B2B</span></small></a>
+
+  <footer>
+    <p>© 2026 Volodymyr Mysechko · Troticoltura Armanini</p>
+    <p data-en="This site uses no cookies and stores no data.">Questo sito non usa cookie e non salva dati.</p>
+    <p><a href="../privacy.html">Privacy</a></p>
+  </footer>
+</div>
+
+<script>
+  // ===== CONFIG =====
+  // Numeri in formato internazionale senza + e senza spazi, es. "393331234567"
+  var CONFIG = {
+    phone:      "393248719456",             // tuo telefono di lavoro
+    whatsapp:   "393248719456",             // tuo WhatsApp di lavoro
+    email:      "volodymyr@armanini.it",    // tua email di lavoro Armanini
+    orderPhone: "390464505224",             // telefono fisso ufficio ordini Armanini (Linfano)
+    orderWhatsapp: "393423966779",          // WhatsApp ufficio ordini Armanini
+    orderEmail: "vendite.linfano@armanini.it", // email ufficio ordini Armanini
+    website:    "https://www.armanini.it"   // sito Armanini
+  };
+  // Come mostrare i numeri sulla pagina
+  var LABEL = {
+    "393248719456": "+39 324 871 9456",
+    "390464505224": "0464 505224",
+    "393423966779": "342 396 6779"
+  };
+  function show(n) { return LABEL[n] || '+' + n; }
+
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var lang = 'it';
+    var T = {
+      it: { missing: 'Dato non ancora inserito.' },
+      en: { missing: 'Not available yet.' }
+    };
+
+    // Collegamenti dai dati CONFIG
+    function link(a, href, text) { if (href) { a.href = href; if (text) a.textContent = text; } }
+    function nolink(a) { a.addEventListener('click', function (e) { if (a.getAttribute('href') === '#') { e.preventDefault(); alert(T[lang].missing); } }); }
+    link($('a-call'), CONFIG.phone && 'tel:+' + CONFIG.phone);
+    link($('a-wa'), CONFIG.whatsapp && 'https://wa.me/' + CONFIG.whatsapp);
+    link($('a-mail'), CONFIG.email && 'mailto:' + CONFIG.email);
+    link($('t-phone'), CONFIG.phone && 'tel:+' + CONFIG.phone, CONFIG.phone && show(CONFIG.phone));
+    link($('t-mail'), CONFIG.email && 'mailto:' + CONFIG.email, CONFIG.email);
+    link($('t-ophone'), CONFIG.orderPhone && 'tel:+' + CONFIG.orderPhone, CONFIG.orderPhone && show(CONFIG.orderPhone));
+    link($('t-owa'), CONFIG.orderWhatsapp && 'https://wa.me/' + CONFIG.orderWhatsapp, CONFIG.orderWhatsapp && show(CONFIG.orderWhatsapp));
+    link($('t-omail'), CONFIG.orderEmail && 'mailto:' + CONFIG.orderEmail, CONFIG.orderEmail);
+    link($('t-web'), CONFIG.website);
+    ['a-call', 'a-wa', 'a-mail', 't-phone', 't-ophone', 't-owa', 't-omail', 't-web'].forEach(function (id) { nolink($(id)); });
+
+    // Salva contatto (vCard)
+    $('a-vcf').addEventListener('click', function () {
+      var v = ['BEGIN:VCARD', 'VERSION:3.0', 'N:Mysechko;Volodymyr;;;', 'FN:Volodymyr Mysechko',
+               'ORG:Troticoltura Armanini', 'TITLE:Commerciale B2B'];
+      if (CONFIG.phone) v.push('TEL;TYPE=WORK,VOICE:+' + CONFIG.phone);
+      if (CONFIG.email) v.push('EMAIL;TYPE=WORK:' + CONFIG.email);
+      if (CONFIG.website) v.push('URL:' + CONFIG.website);
+      v.push('END:VCARD');
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([v.join('\r\n')], { type: 'text/vcard' }));
+      a.download = 'Volodymyr-Mysechko.vcf';
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+
+    // Lingua IT / EN
+    function translate(root) {
+      root.querySelectorAll('[data-en]').forEach(function (n) {
+        if (!n.hasAttribute('data-it')) n.setAttribute('data-it', n.innerHTML);
+        n.innerHTML = n.getAttribute(lang === 'en' ? 'data-en' : 'data-it');
+      });
+    }
+    function setLang(l) {
+      lang = l;
+      translate(document);
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.dataset.lang === l); });
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (saved === 'en') setLang('en');
+  })();
+</script>
+</body>
+</html>

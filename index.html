@@ -3,38 +3,282 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Volodymyr Mysechko · Sito in costruzione</title>
-<meta name="description" content="Volodymyr Mysechko, vendite B2B. Sito in costruzione.">
-<meta name="robots" content="noindex">
-<!-- Pagina temporanea per mysechko.it, finché il sito vero non è pronto (P.IVA + permesso Francesco).
-     Niente cookie, niente statistiche, niente dati salvati. -->
+<title>Volodymyr Mysechko · Consulente commerciale B2B</title>
+<meta name="description" content="Volodymyr Mysechko, consulente commerciale B2B: nuovi clienti, gestione clienti, logistica e digitalizzazione per aziende che vendono ad altre aziende. Trentino, Italia.">
 <style>
-  :root{--navy:#0a192f;--navy2:#0c3a52;--teal:#40c4c8;--teal-soft:#c8e1eb}
+  :root{
+    --navy:#0a192f; --navy2:#0c3a52; --teal:#40c4c8; --teal-soft:#c8e1eb;
+    --bg:#f6f9fb; --card:#ffffff; --text:#13212e; --muted:#5b6b78; --line:#e2e9ee;
+    --radius:16px; --max:1120px;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:#fff;
-       background:linear-gradient(115deg,var(--navy) 0%,var(--navy2) 100%);display:flex;align-items:center;justify-content:center;padding:24px}
-  .box{max-width:620px;width:100%}
-  .eyebrow{display:inline-block;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);border-left:4px solid var(--teal);padding-left:12px;margin-bottom:20px}
-  h1{font-size:clamp(30px,6vw,48px);line-height:1.1;font-weight:600}
-  p{color:var(--teal-soft);font-size:18px;line-height:1.6;margin:18px 0 30px}
-  .links{display:flex;flex-direction:column;gap:12px}
-  a{display:block;text-decoration:none;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px 18px;overflow-wrap:anywhere}
-  a:hover{background:rgba(255,255,255,.12)}
-  small{display:block;color:var(--teal);font-size:12px;text-transform:uppercase;letter-spacing:1px}
-  .en{margin-top:34px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:15px;color:var(--teal-soft)}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:17px}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;z-index:10;background:rgba(10,25,47,.92);backdrop-filter:blur(8px);color:#fff}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .brand{font-weight:600;text-decoration:none;letter-spacing:.2px;white-space:nowrap}
+  .brand span{color:var(--teal)}
+  .links{display:flex;gap:22px;align-items:center}
+  .links a{text-decoration:none;font-size:15px;opacity:.85}
+  .links a:hover{opacity:1}
+  .lang{flex:0 0 auto;display:flex;border:1px solid rgba(255,255,255,.3);border-radius:999px;overflow:hidden}
+  .lang button{background:none;border:0;color:#fff;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer;opacity:.7}
+  .lang button.on{background:var(--teal);color:var(--navy);opacity:1;font-weight:600}
+
+  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(115deg,var(--navy) 0%,var(--navy2) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:120px}
+  .eyebrow{display:inline-block;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);border-left:4px solid var(--teal);padding-left:12px;margin-bottom:22px}
+  .hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.1;font-weight:600;max-width:860px}
+  .hero p.lead{font-size:clamp(17px,2vw,21px);color:var(--teal-soft);max-width:660px;margin:22px 0 34px}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:13px 24px;border-radius:999px;font-weight:600;font-size:16px}
+  .btn.primary{background:var(--teal);color:var(--navy)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.45);color:#fff}
+  .btn:hover{filter:brightness(1.08)}
+  .waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:180px;opacity:.5}
+
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-56px;position:relative;z-index:2}
+  .fact{background:var(--card);border-radius:var(--radius);padding:22px 24px;box-shadow:0 10px 30px rgba(10,25,47,.08)}
+  .fact b{display:block;font-size:20px;color:var(--navy2)}
+  .fact span{color:var(--muted);font-size:15px}
+
+  section{padding:88px 0 0}
+  h2{font-size:clamp(26px,3.4vw,36px);line-height:1.2;font-weight:600;margin-bottom:12px}
+  .sub{color:var(--muted);max-width:680px;margin-bottom:36px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .card h3{font-size:20px;margin:14px 0 8px;font-weight:600}
+  .card p{color:var(--muted);font-size:16px}
+  .icon{width:44px;height:44px;border-radius:12px;background:#e6f6f7;display:grid;place-items:center;color:var(--navy2)}
+  .icon svg{width:24px;height:24px}
+
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .why div{border-top:3px solid var(--teal);padding-top:18px}
+  .why b{display:block;font-size:19px;margin-bottom:6px}
+  .why p{color:var(--muted);font-size:16px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .about{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+  .tl{list-style:none;border-left:2px solid var(--line);margin-left:6px}
+  .tl li{position:relative;padding:0 0 18px 22px}
+  .tl li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--card);border:2px solid var(--teal)}
+  .tl li:last-child::before{background:var(--teal)}
+  .tl b{display:block}
+  .tl span{color:var(--muted);font-size:15px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .chip{background:#eef3f6;border-radius:999px;padding:5px 12px;font-size:14px;color:var(--navy2)}
+
+  .partners{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .partner{display:flex;gap:18px;align-items:flex-start;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:box-shadow .15s,border-color .15s}
+  .partner:hover{border-color:var(--teal);box-shadow:0 10px 30px rgba(10,25,47,.08)}
+  .plogo{flex:0 0 56px;height:56px;border-radius:14px;background:var(--navy2);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:700}
+  .plogo img{width:100%;height:100%;object-fit:contain}
+  .plogo.logo-img{flex-basis:96px;height:84px;padding:8px;border-radius:14px;background:linear-gradient(120deg,#0a5c8a 0%,#00837f 55%,#08b0a0 100%)}
+  .partner.new{border-style:dashed}
+  .partner.new .plogo{background:#e6f6f7;color:var(--navy2)}
+  .pbody small{color:var(--teal);font-size:13px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+  .pbody h3{font-size:20px;font-weight:600;margin:2px 0 6px}
+  .pbody p{color:var(--muted);font-size:16px}
+  .go{display:inline-block;margin-top:10px;font-weight:600;color:var(--navy2)}
+  .contact{margin:88px 0 0;background:linear-gradient(115deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;border-radius:24px;padding:48px}
+  .contact .sub{color:var(--teal-soft)}
+  .clist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+  .citem{display:block;text-decoration:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:18px 20px}
+  .citem{min-width:0;overflow-wrap:anywhere}
+  .citem small{display:block;color:var(--teal);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+  .citem:hover{background:rgba(255,255,255,.12)}
+
+  footer{padding:40px 0 48px;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+
+  @media (max-width:860px){
+    .links{display:none}
+    .brand{font-size:15px;overflow:hidden;text-overflow:ellipsis;min-width:0}
+    .grid,.facts,.clist,.why,.split,.partners{grid-template-columns:1fr}
+    .partner{padding:20px}
+    .hero .wrap{padding-top:64px;padding-bottom:110px}
+    .contact{padding:32px 22px}
+    section{padding-top:64px}
+  }
 </style>
 </head>
 <body>
-  <div class="box">
-    <div class="eyebrow">Vendite B2B · Trentino</div>
-    <h1>Volodymyr Mysechko</h1>
-    <p>Il sito è in costruzione. Nel frattempo potete scrivermi qui:</p>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Volodymyr Mysechko <span>·</span> B2B</a>
     <div class="links">
-      <a href="mailto:volodymyr@mysechko.it"><small>Email</small>volodymyr@mysechko.it</a>
-      <a href="https://www.linkedin.com/in/volodymyr-mysechko/" target="_blank" rel="noopener"><small>LinkedIn</small>volodymyr-mysechko</a>
+      <a href="#servizi" data-en="Services">Servizi</a>
+      <a href="#perche" data-en="Why me">Perché io</a>
+      <a href="#percorso" data-en="Experience">Percorso</a>
+      <a href="#collaborazioni" data-en="Partners">Collaborazioni</a>
+      <a href="#contatti" data-en="Contact">Contatti</a>
     </div>
-    <div class="en">EN · Website under construction. You can contact me by email or on LinkedIn.</div>
+    <div class="lang" role="group" aria-label="Lingua / Language">
+      <button type="button" data-lang="it" class="on">IT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
   </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow" data-en="B2B sales consultant · Trentino, Italy">Consulente commerciale B2B · Trentino, Italia</div>
+    <h1 data-en="More customers, fewer problems: B2B sales for your company.">Più clienti, meno problemi: vendite B2B per la vostra azienda.</h1>
+    <p class="lead" data-en="I help producers and distributors find new customers, manage existing ones and deliver on time, where it is needed.">Aiuto produttori e distributori a trovare nuovi clienti, gestire quelli esistenti e consegnare puntuali, dove serve.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contatti" data-en="Let's talk">Parliamone</a>
+      <a class="btn ghost" href="#servizi" data-en="See the services">Scopri i servizi</a>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#78d2dc" stroke-width="1.5">
+      <path d="M0 70 C240 30 480 110 720 70 S1200 30 1440 70" opacity=".35"/>
+      <path d="M0 95 C240 55 480 135 720 95 S1200 55 1440 95" opacity=".3"/>
+      <path d="M0 120 C240 80 480 160 720 120 S1200 80 1440 120" opacity=".25"/>
+      <path d="M0 145 C240 105 480 185 720 145 S1200 105 1440 145" opacity=".2"/>
+    </g>
+  </svg>
+</header>
+
+<div class="wrap">
+  <div class="facts">
+    <div class="fact"><b data-en="Since 2023">Dal 2023</b><span data-en="in B2B sales, from production to the sales office">nelle vendite B2B, dalla produzione all'ufficio vendite</span></div>
+    <div class="fact"><b data-en="Sales + technology">Vendite + tecnologia</b><span data-en="Diploma in Software Engineering">Diploma in Ingegneria del Software</span></div>
+    <div class="fact"><b data-en="4 languages">4 lingue</b><span data-en="Italian, English, Ukrainian, Russian">Italiano, inglese, ucraino, russo</span></div>
+  </div>
+</div>
+
+<section id="servizi">
+  <div class="wrap">
+    <h2 data-en="What I can do for your company">Cosa posso fare per la vostra azienda</h2>
+    <p class="sub" data-en="For producers and distributors that sell to other companies. Direct experience with fresh and perishable products, where speed and precision matter most.">Per produttori e distributori che vendono ad altre aziende. Esperienza diretta con prodotti freschi e deperibili, dove velocità e precisione contano di più.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div>
+        <h3 data-en="New customers">Nuovi clienti</h3>
+        <p data-en="Research and contact of wholesalers, shops, distributors and retail chains. Quotes, negotiation and first order.">Ricerca e contatto di grossisti, negozi, distributori e catene. Preventivi, trattativa e primo ordine.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2 .7 3 2.8 3 6"/></svg></div>
+        <h3 data-en="Customer management">Gestione clienti</h3>
+        <p data-en="Orders, commercial terms and after-sales support. Constant follow-up, to keep customers and make them grow.">Ordini, condizioni commerciali e assistenza post-vendita. Un contatto costante, per tenere i clienti e farli crescere.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="12" height="9" rx="1"/><path d="M14 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div>
+        <h3 data-en="Logistics and shipping">Logistica e spedizioni</h3>
+        <p data-en="Delivery planning in Italy and abroad, coordination between production, warehouse and carriers.">Organizzazione delle consegne in Italia e all'estero, coordinamento tra produzione, magazzino e trasportatori.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 9l2 2-2 2M12 13h4"/></svg></div>
+        <h3 data-en="Digitalization">Digitalizzazione</h3>
+        <p data-en="Simple digital tools for orders, warehouse and delivery routes: fewer errors, more time to sell.">Strumenti digitali semplici per ordini, magazzino e viaggi: meno errori, più tempo per vendere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="perche">
+  <div class="wrap">
+    <h2 data-en="Why work with me">Perché lavorare con me</h2>
+    <p class="sub" data-en="I don't just sell: I know how a product is made and how it reaches the customer.">Non mi limito a vendere: so come nasce un prodotto e come arriva al cliente.</p>
+    <div class="why">
+      <div><b data-en="I know the work from the inside">Conosco il lavoro da dentro</b><p data-en="Production, warehouse, logistics and sales: I have worked in every step.">Produzione, magazzino, logistica e vendita: ho lavorato in ogni fase.</p></div>
+      <div><b data-en="Sales with method">Vendite con metodo</b><p data-en="Certified training in B2B sales, sales pipeline and negotiation.">Formazione certificata in vendite B2B, gestione della pipeline e negoziazione.</p></div>
+      <div><b data-en="Technology that helps">Tecnologia che aiuta</b><p data-en="A technical background to make sales and logistics processes faster.">Una base tecnica per rendere più veloci i processi di vendita e logistica.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="percorso">
+  <div class="wrap split">
+    <div class="about">
+      <h2 data-en="About me">Chi sono</h2>
+      <p class="sub" style="margin-bottom:20px" data-en="Volodymyr Mysechko, based in Arco (Trentino). I grew up professionally in a trout farm: from the processing lab to managing the sales office. Today I put this experience at the service of companies in any sector that want to sell more and better.">Volodymyr Mysechko, ad Arco (Trentino). Sono cresciuto professionalmente in una troticoltura: dal laboratorio di lavorazione alla gestione dell'ufficio vendite. Oggi metto questa esperienza al servizio di aziende di ogni settore che vogliono vendere di più e meglio.</p>
+      <div class="chips">
+        <span class="chip" data-en="Italian">Italiano</span>
+        <span class="chip" data-en="English">Inglese</span>
+        <span class="chip" data-en="Ukrainian">Ucraino</span>
+        <span class="chip" data-en="Russian">Russo</span>
+      </div>
+    </div>
+    <ul class="tl">
+      <li><b data-en="2023 · Fish processing">2023 · Lavorazione pesce</b><span data-en="Processing and packing fresh trout">Lavorazione e confezionamento di trote fresche</span></li>
+      <li><b data-en="2024 · B2B sales assistant">2024 · Addetto alle vendite B2B</b><span data-en="Orders, documents, warehouse and deliveries">Ordini, documenti, magazzino e consegne</span></li>
+      <li><b data-en="2025 · Sales office manager">2025 · Responsabile ufficio vendite</b><span data-en="Customers, logistics, training of colleagues">Clienti, logistica, formazione dei colleghi</span></li>
+      <li><b data-en="2026 · B2B sales consultant">2026 · Consulente commerciale B2B</b><span data-en="New customers and market development">Sviluppo nuovi clienti e mercati</span></li>
+      <li><b data-en="Education">Formazione</b><span data-en="Diploma in Software Engineering (2024) · Coursera certificates in B2B sales, sales pipeline and negotiation (2026)">Diploma in Ingegneria del Software (2024) · Certificazioni Coursera in vendite B2B, pipeline e negoziazione (2026)</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="collaborazioni">
+  <div class="wrap">
+    <h2 data-en="Partners">Collaborazioni</h2>
+    <p class="sub" data-en="The companies I work with. Open their business card to see products and contacts.">Le aziende con cui lavoro. Aprite il loro biglietto da visita per vedere prodotti e contatti.</p>
+    <div class="partners">
+      <a class="partner" href="armanini/">
+        <div class="plogo logo-img"><img src="armanini/LOGO%20ARMANINI/logo-armanini-bianco.png" alt="Troticoltura Armanini"></div>
+        <div class="pbody">
+          <small data-en="Fish · Trentino">Ittico · Trentino</small>
+          <h3>Troticoltura Armanini</h3>
+          <p data-en="B2B sales: fresh trout and char, fillets, smoked products and specialities.">Vendite B2B: trota e salmerino freschi, filetti, affumicati e specialità.</p>
+          <span class="go" data-en="Open business card →">Apri il biglietto da visita →</span>
+        </div>
+      </a>
+      <a class="partner new" href="#contatti">
+        <div class="plogo">+</div>
+        <div class="pbody">
+          <small data-en="New partnership">Nuova collaborazione</small>
+          <h3 data-en="Your company here?">La vostra azienda qui?</h3>
+          <p data-en="Do you want a sales contact for your products? Let's talk.">Cercate un commerciale per i vostri prodotti? Parliamone.</p>
+          <span class="go" data-en="Contact me →">Contattami →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contact" id="contatti">
+    <h2 data-en="Let's talk about your company">Parliamo della vostra azienda</h2>
+    <p class="sub" data-en="Tell me what you sell and which customers you want to reach.">Raccontatemi cosa vendete e quali clienti volete raggiungere.</p>
+    <div class="clist">
+      <a class="citem" href="mailto:volodymyr@mysechko.it?subject=Contatto%20dal%20sito"><small>Email</small>volodymyr@mysechko.it</a>
+      <a class="citem" href="https://wa.me/393248719456" target="_blank" rel="noopener"><small>WhatsApp</small>+39 324 871 9456</a>
+      <a class="citem" href="https://www.linkedin.com/in/volodymyr-mysechko/" target="_blank" rel="noopener"><small>LinkedIn</small>volodymyr-mysechko</a>
+      <a class="citem" href="https://instagram.com/v.mysechko" target="_blank" rel="noopener"><small>Instagram</small>@v.mysechko</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Volodymyr Mysechko · Arco (TN) · <span data-en="VAT no. coming soon">P.IVA in arrivo</span></span>
+    <span><a href="privacy.html">Privacy</a> · <span data-en="This website uses no cookies.">Questo sito non usa cookie.</span></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nodes = document.querySelectorAll('[data-en]');
+    nodes.forEach(function (n) { n.setAttribute('data-it', n.innerHTML); });
+    function setLang(l) {
+      nodes.forEach(function (n) { n.innerHTML = n.getAttribute(l === 'en' ? 'data-en' : 'data-it'); });
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.dataset.lang === l); });
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.dataset.lang); });
+    });
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (saved === 'en') setLang('en');
+  })();
+</script>
 </body>
 </html>
