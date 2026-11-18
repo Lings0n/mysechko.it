@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VM · pannello</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0a192f">
+<style>
+:root{--navy:#0a192f;--navy2:#0c3a52;--teal:#40c4c8;--soft:#c8e1eb;--bg:#f6f9fb;--line:#e2e9ee;--muted:#5b6b78;--green:#00837f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#13212e;font-size:16px;line-height:1.45}
+header{background:linear-gradient(115deg,var(--navy),var(--navy2));color:#fff;padding:22px 16px 26px}
+header .w{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.logo{width:48px;height:48px;border-radius:12px;background:#0c3a52;color:var(--teal);display:grid;place-items:center;font-weight:700;font-size:20px;border:1px solid rgba(255,255,255,.15)}
+header h1{font-size:21px;font-weight:600}header p{color:var(--soft);font-size:14px}
+main{max-width:620px;margin:0 auto;padding:6px 16px 40px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin:24px 0 10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:10px}
+.card.green{border-left:4px solid var(--green)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.top b{font-size:17px}.top small{display:block;color:var(--muted);font-size:13px}
+.open{flex:0 0 auto;text-decoration:none;background:var(--navy2);color:#fff;font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px}
+.card.green .open{background:var(--green)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btns a,.btns button{font:inherit;font-size:13px;font-weight:600;color:var(--navy2);background:#eef3f6;border:0;border-radius:999px;padding:7px 12px;text-decoration:none;cursor:pointer}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.links a:last-child{border-bottom:0}.links a span{color:var(--muted);font-size:13px}.links a b{font-weight:600}
+#qr{position:fixed;inset:0;background:rgba(10,25,47,.94);display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff;padding:20px;z-index:9}
+#qr.on{display:flex}#qr img{width:min(80vw,80vh,420px);background:#fff;border-radius:16px;padding:10px}
+#qr p{font-size:18px;font-weight:600}#qr small{color:var(--soft)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s}
+#toast.on{opacity:1}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+</style>
+</head>
+<body>
+<header><div class="w"><div class="logo">VM</div><div><h1>Pannello mysechko.it</h1><p>Solo per Vladi · pagina nascosta, non collegata dal sito</p></div></div></header>
+<main>
+<h2>Biglietti</h2>
+<div id="cards"></div>
+
+<h2>Sito</h2>
+<div class="card links">
+  <a href="/" target="_blank"><b>Sito principale</b><span>mysechko.it</span></a>
+  <a href="/privacy.html" target="_blank"><b>Privacy</b><span>/privacy.html</span></a>
+</div>
+
+<h2>Gestione</h2>
+<div class="card links">
+  <a href="https://github.com/Lings0n/mysechko.it" target="_blank" rel="noopener"><b>GitHub · codice del sito</b><span>Lings0n/mysechko.it</span></a>
+  <a href="https://github.com/Lings0n/mysechko.it/settings/pages" target="_blank" rel="noopener"><b>GitHub · impostazioni Pages</b><span>dominio, HTTPS</span></a>
+  <a href="https://admin.aruba.it" target="_blank" rel="noopener"><b>Aruba · area clienti</b><span>dominio, DNS, caselle</span></a>
+  <a href="https://webmail.aruba.it" target="_blank" rel="noopener"><b>Webmail mysechko.it</b><span>volodymyr@mysechko.it</span></a>
+  <a href="https://webmail.pec.it" target="_blank" rel="noopener"><b>Webmail PEC</b><span>volodymyr.mysechko@pec.it</span></a>
+  <a href="https://www.linkedin.com/post-inspector/" target="_blank" rel="noopener"><b>LinkedIn Post Inspector</b><span>aggiorna anteprima link</span></a>
+</div>
+<footer>Pagina non indicizzata. Contiene solo link pubblici, nessuna password.</footer>
+</main>
+
+<div id="qr" role="dialog"><img alt="QR code"><p></p><small>Tocca per chiudere</small></div>
+<div id="toast"></div>
+
+<script>
+var CARDS=[
+ {name:'Lavoro',sub:'Commerciale B2B · mysechko.it/contatti',path:'/contatti/',text:'I miei contatti di lavoro:'},
+ {name:'Personale',sub:'Lingson · mysechko.it/personale',path:'/personale/',text:'I miei contatti:'},
+ {name:'Armanini',sub:'Troticoltura Armanini · mysechko.it/armanini',path:'/armanini/',text:'Contatti Troticoltura Armanini (commerciale e ufficio ordini):',green:true}
+];
+var B='https://mysechko.it';
+function el(h){var d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function toast(t){var x=document.getElementById('toast');x.textContent=t;x.classList.add('on');setTimeout(function(){x.classList.remove('on')},1600)}
+CARDS.forEach(function(c){
+  var url=B+c.path, msg=c.text+' '+url, e=encodeURIComponent;
+  var hasVcf=c.path!=='/armanini/';
+  var card=el('<div class="card'+(c.green?' green':'')+'"><div class="top"><div><b>'+c.name+'</b><small>'+c.sub+'</small></div><a class="open" href="'+c.path+'" target="_blank">Apri</a></div><div class="btns">'+
+    '<button data-a="share">Condividi…</button>'+
+    '<a href="https://wa.me/?text='+e(msg)+'" target="_blank" rel="noopener">WhatsApp</a>'+
+    '<a href="https://t.me/share/url?url='+e(url)+'&text='+e(c.text)+'" target="_blank" rel="noopener">Telegram</a>'+
+    '<a href="mailto:?subject='+e('Contatti Volodymyr Mysechko')+'&body='+e(msg)+'">Email</a>'+
+    '<button data-a="copy">Copia link</button>'+
+    '<button data-a="qr">QR</button>'+
+    '<a href="'+c.path+'qr-stampa.png" download>QR stampa</a>'+
+    (hasVcf?'<a href="'+c.path+'volodymyr-mysechko.vcf" download>vCard</a>':'')+
+    '</div></div>');
+  card.querySelector('[data-a=share]').onclick=function(){
+    if(navigator.share){navigator.share({title:'Volodymyr Mysechko',text:c.text,url:url}).catch(function(){})}
+    else{copy(url)}
+  };
+  card.querySelector('[data-a=copy]').onclick=function(){copy(url)};
+  card.querySelector('[data-a=qr]').onclick=function(){var q=document.getElementById('qr');q.querySelector('img').src=c.path+'qr.svg';q.querySelector('p').textContent=c.name+' · mysechko.it'+c.path;q.classList.add('on')};
+  document.getElementById('cards').appendChild(card);
+});
+function copy(u){(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){toast('Link copiato')},function(){prompt('Copia il link:',u)})}
+document.getElementById('qr').onclick=function(){this.classList.remove('on')};
+</script>
+</body>
+</html>
