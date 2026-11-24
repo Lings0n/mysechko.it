@@ -97,6 +97,16 @@
   .qrbox{text-align:center;padding:18px}
   .qrbox img{width:220px;height:220px;max-width:100%;background:#fff;border-radius:12px}
   .qrbox p{color:var(--muted);font-size:14px;margin-top:8px}
+  details.orders{background:#f7faf9;border:1px solid var(--line);border-radius:var(--radius)}
+  details.orders summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;cursor:pointer}
+  details.orders summary::-webkit-details-marker{display:none}
+  details.orders .q b{display:block;font-size:15px;color:var(--muted);font-weight:600}
+  details.orders .q small{color:var(--muted);font-size:13px}
+  details.orders .chev{font-size:18px;color:var(--muted);transition:transform .2s}
+  details.orders[open] .chev{transform:rotate(180deg)}
+  details.orders .obody{padding:0 18px 12px;border-top:1px solid var(--line)}
+  details.orders .obody .intro{margin-top:12px}
+  details.orders .row a{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -166,14 +176,15 @@
   </section>
 
   <section>
-    <h2 data-en="Orders">Ordini</h2>
-    <div class="card office">
-      <div class="who" data-en="Armanini orders office">Ufficio ordini Armanini</div>
-      <p class="intro" data-en="For customers with agreed terms: send your orders here, by phone, WhatsApp or email.">Per i clienti con condizioni già concordate: inviate qui i vostri ordini, per telefono, WhatsApp o email.</p>
+    <details class="orders">
+      <summary><span class="q"><b data-en="Already a customer?">Sei già cliente?</b><small data-en="Contacts of the Armanini orders office">Contatti dell'ufficio ordini Armanini</small></span><span class="chev" aria-hidden="true">▾</span></summary>
+      <div class="obody">
+      <p class="intro" data-en="Only for customers with agreed terms: send your orders here, by phone, WhatsApp or email. For prices, terms and new products, contact me.">Solo per i clienti con condizioni già concordate: inviate qui i vostri ordini, per telefono, WhatsApp o email. Per prezzi, condizioni e nuovi prodotti contattate me.</p>
       <div class="row"><div><small data-en="Phone">Telefono</small></div><a id="t-ophone" href="tel:+390464505224">0464 505224</a></div>
       <div class="row"><div><small>WhatsApp</small></div><a id="t-owa" href="https://wa.me/393423966779" target="_blank" rel="noopener">342 396 6779</a></div>
       <div class="row"><div><small>Email</small></div><a id="t-omail" href="mailto:vendite.linfano@armanini.it">vendite.linfano@armanini.it</a></div>
-    </div>
+      </div>
+    </details>
   </section>
 
   <section>
