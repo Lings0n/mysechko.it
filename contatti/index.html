@@ -89,5 +89,6 @@ document.querySelectorAll('.lang button').forEach(function(b){b.classList.toggle
 document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.lang)})});
 var s=null;try{s=localStorage.getItem('lang')}catch(e){}if(s&&s!=='it'&&langs.indexOf(s)>=0)set(s);})();
 </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d0059c863e0b4dab8c7097dab4bb5051"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
